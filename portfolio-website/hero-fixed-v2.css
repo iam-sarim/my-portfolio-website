@@ -1,0 +1,544 @@
+/* ─────────────────────────────────────────────
+   HERO SECTION — FIXED RESPONSIVE CSS v2
+   Key principles:
+   • hero-container is the full positioning context
+   • Loading screen: absolutely centered in the
+     space BELOW the navbar (not the full viewport)
+   • Hero content: flows naturally below navbar,
+     centered on X only, with generous top spacing
+   • Hero reveal: pure opacity + scale (no slide)
+   • Zoom-proof: navbar offset via padding-top +
+     absolute centering within that padded space
+───────────────────────────────────────────── */
+
+/* ─── Hero Container ─── */
+.hero-container {
+  position: relative;
+
+  /* ✅ Pushes ALL content (including absolute children's
+     reference point) to start below the fixed navbar.
+     The container itself is the positioning parent. */
+  padding-top: var(--navbar-height);
+
+  /* Full visible height minus navbar = the usable area */
+  min-height: 100vh;
+
+  display: flex;
+  align-items: center; /* X-axis center for hero-content */
+  justify-content: flex-start; /* Y-axis: from top of padded area */
+  flex-direction: column;
+
+  padding-left: 2rem;
+  padding-right: 2rem;
+  padding-bottom: 4rem;
+  /* REMOVED: overflow: hidden — it breaks position: sticky on child elements */
+}
+
+/* Enhanced Background Gradient */
+.background-gradient {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background:
+    radial-gradient(
+      ellipse at 20% 20%,
+      rgba(0, 102, 255, 0.3) 0%,
+      transparent 60%
+    ),
+    radial-gradient(
+      ellipse at 80% 80%,
+      rgba(0, 212, 255, 0.25) 0%,
+      transparent 60%
+    ),
+    radial-gradient(
+      ellipse at 50% 50%,
+      rgba(0, 150, 255, 0.15) 0%,
+      transparent 70%
+    ),
+    linear-gradient(
+      135deg,
+      #000510 0%,
+      #000b1a 25%,
+      #001333 50%,
+      #001a40 75%,
+      #002147 100%
+    );
+  z-index: 0;
+  animation: gradientShift 20s ease infinite;
+}
+
+@keyframes gradientShift {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.85;
+  }
+}
+
+.grain-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E");
+  opacity: 0.6;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.floating-icons {
+  display: none !important;
+}
+
+/* ─── Loading Screen ───
+   ✅ FIXED positioning: centers in viewport regardless of
+   page content. Works perfectly both when opening directly
+   and in live server, stays centered on all screen sizes.
+─── */
+.loading-screen {
+  position: fixed;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  width: 90%;
+  max-width: 540px;
+
+  /* ✅ Fixed positioning centers it in the viewport.
+     This works consistently whether content is added or not. */
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+
+  transition:
+    opacity 0.6s ease,
+    transform 0.6s ease;
+}
+
+/* ✅ RESTORED: same fade+scale as original */
+.loading-screen.hidden {
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0.92);
+  pointer-events: none;
+}
+
+/* Letter Box */
+.letter-box {
+  width: 100%;
+  height: 110px;
+  background: linear-gradient(
+    135deg,
+    rgba(0, 102, 255, 0.15) 0%,
+    rgba(0, 212, 255, 0.08) 100%
+  );
+  border: 2px solid rgba(0, 212, 255, 0.4);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(-20px);
+  animation: slideIn 0.6s ease forwards;
+  box-shadow:
+    0 0 40px rgba(0, 212, 255, 0.3),
+    inset 0 0 40px rgba(0, 212, 255, 0.15);
+}
+
+@keyframes slideIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.letter {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: clamp(2.5rem, 8vw, 4rem);
+  font-weight: 700;
+  color: var(--primary-blue);
+  text-shadow:
+    0 0 20px var(--glow-blue),
+    0 0 40px var(--glow-blue),
+    0 0 60px var(--glow-blue);
+  animation: letterGlow 2s ease-in-out infinite alternate;
+}
+
+@keyframes letterGlow {
+  from {
+    text-shadow:
+      0 0 20px var(--glow-blue),
+      0 0 40px var(--glow-blue),
+      0 0 60px var(--glow-blue);
+  }
+  to {
+    text-shadow:
+      0 0 30px var(--glow-blue),
+      0 0 60px var(--glow-blue),
+      0 0 90px var(--glow-blue);
+  }
+}
+
+/* Code Box */
+.code-box {
+  width: 100%;
+  background: var(--code-bg);
+  border: 1px solid rgba(0, 212, 255, 0.3);
+  border-radius: 8px;
+  padding: 1.2rem 1.5rem;
+  font-family: "Inter", monospace;
+  font-size: clamp(0.7rem, 2vw, 0.88rem);
+  line-height: 1.6;
+  opacity: 0;
+  transform: translateY(-10px);
+  animation: slideIn 0.6s ease 0.2s forwards;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(10px);
+  overflow: hidden;
+}
+
+.code-line {
+  opacity: 0;
+  transform: translateX(-10px);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.code-line.active {
+  animation: codeLine 0.3s ease forwards;
+}
+
+@keyframes codeLine {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.comment {
+  color: #6c8ea8;
+}
+.keyword {
+  color: #00d4ff;
+}
+.function-name {
+  color: #4ec9b0;
+}
+.string {
+  color: #ce9178;
+}
+.variable {
+  color: #9cdcfe;
+}
+
+.cursor {
+  display: inline-block;
+  width: 8px;
+  height: 16px;
+  background: var(--primary-blue);
+  margin-left: 2px;
+  vertical-align: middle;
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+/* Loading Bar */
+.loading-container {
+  width: 100%;
+  opacity: 0;
+  transform: translateY(-10px);
+  animation: slideIn 0.6s ease 0.4s forwards;
+}
+
+.loading-text {
+  font-family: "Inter", sans-serif;
+  font-size: clamp(0.75rem, 2vw, 0.9rem);
+  color: var(--text-secondary);
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+.loading-bar-bg {
+  width: 100%;
+  height: 4px;
+  background: rgba(0, 212, 255, 0.15);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.loading-bar-fill {
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    var(--secondary-blue),
+    var(--primary-blue)
+  );
+  border-radius: 2px;
+  width: 0%;
+  transition: width 0.08s linear;
+  box-shadow: 0 0 10px var(--glow-blue);
+}
+
+/* ─── Main Hero Content ───
+   ✅ FIX: No longer absolutely positioned.
+   Sits in the flex column flow, horizontally centered,
+   with a generous fixed top margin from the navbar.
+   opacity+scale reveal only — NO translateX slide.
+─── */
+.hero-content {
+  position: relative;
+  z-index: 10;
+  text-align: center;
+  width: 100%;
+  max-width: 900px;
+  opacity: 0;
+  pointer-events: none;
+
+  /* ✅ Only scale, no X/Y translate — preserves original reveal feel */
+  transform: scale(0.95);
+  transition:
+    opacity 0.7s ease,
+    transform 0.7s ease;
+
+  /* ✅ Generous, stable gap from navbar across all zoom levels.
+     Uses rem so it doesn't shift with zoom like vh/% would. */
+  margin-top: 7rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hero-content.active {
+  opacity: 1;
+  transform: scale(1);
+  pointer-events: auto;
+}
+
+.hero-title {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: clamp(2.5rem, 8vw, 5.5rem);
+  font-weight: 700;
+  color: var(--primary-blue);
+  margin-bottom: 1rem;
+  text-shadow:
+    0 0 30px var(--glow-blue),
+    0 0 60px var(--glow-blue),
+    0 0 90px rgba(0, 212, 255, 0.3);
+  animation: titleGlow 3s ease-in-out infinite alternate;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+@keyframes titleGlow {
+  from {
+    text-shadow:
+      0 0 30px var(--glow-blue),
+      0 0 60px var(--glow-blue),
+      0 0 90px rgba(0, 212, 255, 0.3);
+  }
+  to {
+    text-shadow:
+      0 0 40px var(--glow-blue),
+      0 0 80px var(--glow-blue),
+      0 0 120px rgba(0, 212, 255, 0.4);
+  }
+}
+
+.hero-subtitle {
+  font-family: "Inter", sans-serif;
+  font-size: clamp(1.1rem, 3.5vw, 2rem);
+  font-weight: 400;
+  color: var(--text-primary);
+  margin-bottom: 1.5rem;
+  letter-spacing: 0.5px;
+  min-height: 2.2em;
+}
+
+#typed-suffix {
+  color: var(--primary-blue);
+  font-weight: 500;
+}
+
+.type-cursor {
+  display: inline-block;
+  width: 2px;
+  height: 1.1em;
+  background: var(--primary-blue);
+  margin-left: 1px;
+  vertical-align: middle;
+  animation: blink 0.75s step-end infinite;
+}
+
+.hero-description {
+  font-family: "Inter", sans-serif;
+  font-size: clamp(1rem, 2.2vw, 1.2rem);
+  color: var(--text-secondary);
+  line-height: 1.8;
+  margin-bottom: 2.5rem;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 1rem;
+  font-weight: 400;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btn {
+  font-family: "Inter", sans-serif;
+  font-size: clamp(0.95rem, 2vw, 1.05rem);
+  font-weight: 600;
+  padding: 1rem 2.5rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.btn-primary {
+  background: linear-gradient(
+    135deg,
+    var(--secondary-blue),
+    var(--primary-blue)
+  );
+  color: var(--text-primary);
+  box-shadow: 0 4px 20px rgba(0, 212, 255, 0.4);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 30px rgba(0, 212, 255, 0.6);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--primary-blue);
+  border: 2px solid var(--primary-blue);
+}
+
+.btn-secondary:hover {
+  background: rgba(0, 212, 255, 0.15);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 20px rgba(0, 212, 255, 0.3);
+}
+
+/* ─── Responsive Breakpoints ─── */
+
+/* Large desktop */
+@media (min-width: 1921px) {
+  .hero-content {
+    max-width: 1100px;
+    margin-top: 8rem;
+  }
+}
+
+/* Tablet landscape */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .hero-content {
+    margin-top: 6rem;
+  }
+}
+
+/* Tablet portrait & large phones */
+@media (max-width: 768px) {
+  :root {
+    --navbar-height: 70px;
+  }
+
+  .hero-container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-bottom: 3rem;
+  }
+
+  .hero-content {
+    margin-top: 5.5rem;
+  }
+
+  .letter-box {
+    height: 90px;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .btn {
+    width: 100%;
+    max-width: 300px;
+    text-align: center;
+  }
+
+  .hero-description {
+    padding: 0 0.5rem;
+  }
+}
+
+/* Small phones */
+@media (max-width: 480px) {
+  :root {
+    --navbar-height: 65px;
+  }
+
+  .hero-container {
+    padding-bottom: 2.5rem;
+  }
+
+  .hero-content {
+    margin-top: 5rem;
+  }
+
+  .loading-screen {
+    gap: 1.2rem;
+    width: 95%;
+  }
+
+  .code-box {
+    padding: 0.9rem 1rem;
+  }
+
+  .letter-box {
+    height: 80px;
+  }
+}
+
+/* Very small phones */
+@media (max-width: 360px) {
+  .hero-title {
+    font-size: clamp(2rem, 10vw, 2.5rem);
+  }
+
+  .hero-subtitle {
+    font-size: clamp(0.9rem, 4vw, 1.1rem);
+  }
+
+  .btn {
+    padding: 0.85rem 2rem;
+  }
+
+  .hero-content {
+    margin-top: 4.5rem;
+  }
+}
