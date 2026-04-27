@@ -31,7 +31,7 @@ faqs.forEach((faq, i) => {
   const item = document.createElement("div");
   item.className = "faq-item";
   item.innerHTML = `
-    <button class="faq-question" aria-expanded="false" onclick="toggle(${i})">
+    <button class="faq-question" aria-expanded="false" onclick="faqToggle(${i})">
       <span class="faq-question-text">${faq.q}</span>
       <span class="faq-icon">
         <svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -48,16 +48,25 @@ faqs.forEach((faq, i) => {
   list.appendChild(item);
 });
 
-function toggle(index) {
+function faqToggle(index) {
   const items = document.querySelectorAll(".faq-item");
-  const item = items[index];
-  const isOpen = item.classList.contains("open");
+  const clickedItem = items[index];
+  const isOpen = clickedItem.classList.contains("open");
+
+  // Close all
   items.forEach((el) => {
     el.classList.remove("open");
     el.querySelector("button").setAttribute("aria-expanded", "false");
+    const ans = el.querySelector(".faq-answer");
+    ans.style.height = "0px";
   });
+
+  // Open clicked if it was closed
   if (!isOpen) {
-    item.classList.add("open");
-    item.querySelector("button").setAttribute("aria-expanded", "true");
+    clickedItem.classList.add("open");
+    clickedItem.querySelector("button").setAttribute("aria-expanded", "true");
+    const ans = clickedItem.querySelector(".faq-answer");
+    const inner = ans.querySelector(".faq-answer-inner");
+    ans.style.height = inner.scrollHeight + "px";
   }
 }
