@@ -1,27 +1,27 @@
 const faqs = [
   {
-    q: "What technologies do you specialize in?",
-    a: "I specialize in <strong>Drupal</strong> as my primary CMS, along with <strong>PHP, JavaScript, and React</strong> for custom module and theme development. I'm also proficient in RESTful API integrations, DevOps workflows with Docker and CI/CD pipelines, and front-end performance optimization.",
+    q: "What technologies do you specialize in, and what services do you offer?",
+    a: "I specialize in modern full-stack development focused on building fast and scalable web applications, using modern AI tools for faster development and automated workflows. My core tech stack includes React, Next.js, Node.js, Express, MongoDB, and PostgreSQL. I also work with WordPress for CMS-based solutions, which is ideal for business websites and e-commerce stores.",
   },
   {
-    q: "How long does a typical Drupal project take?",
-    a: "It depends on scope. A standard brochure site takes <strong>3–6 weeks</strong>, a mid-size project with custom modules runs <strong>6–12 weeks</strong>, and large enterprise builds can take <strong>3–6 months</strong>. I always provide a detailed timeline after a discovery call so you know exactly what to expect.",
+    q: "How do we get started?",
+    a: "Simply reach out with a brief description of your project, what it is, what features you need, and your deadline. I'll review it and get back to you with questions, a rough timeline, and a quote.",
   },
   {
-    q: "Do you provide ongoing maintenance and support?",
-    a: "Yes — I offer <strong>monthly retainer packages</strong> that cover security updates, module upgrades, performance monitoring, bug fixes, and priority support. Think of it as having a dedicated Drupal developer on call without the overhead of a full-time hire.",
+    q: "How long does a project usually take?",
+    a: "Project timelines vary based on complexity. A simple WordPress business website typically takes 1–2 weeks, while a custom web application with different features can take 3–6+ weeks. I'll provide a clear, detailed timeline after understanding your exact requirements.",
   },
   {
-    q: "What's your development process like?",
-    a: "I follow an <strong>agile, milestone-based workflow</strong>: discovery → design handoff → iterative development sprints → QA & staging review → deployment. You get regular progress updates, access to a staging environment throughout, and a clear handoff document at the end.",
+    q: "What does your development process look like?",
+    a: "I start by understanding your goals and requirements, then define the scope and timeline. From there, I move into design and development with regular updates, test across different devices, apply final revisions, and hand over full access upon launch. you’ll always know where your project stands.",
   },
   {
     q: "Do you work with teams or just solo projects?",
-    a: "Both. I'm comfortable <strong>embedded in an existing team</strong> — working alongside designers, project managers, and other developers — or leading a project entirely from discovery to launch. I adapt to your workflow, whether that's Jira, Linear, Asana, or a simple Slack channel.",
+    a: "I work both independently and as part of development teams. I'm comfortable collaborating with designers, project managers, and other developers to deliver the best result for your project.",
   },
   {
     q: "Who do you typically work with?",
-    a: "My clients range from <strong>digital agencies</strong> that need a reliable Drupal specialist to bring in on client projects, to <strong>mid-size companies</strong> and nonprofits looking to build or scale their web presence. If you need a thoughtful, experienced developer who communicates clearly, we'll probably be a great fit.",
+    a: "I mostly works with startups, agencies, organizations and business of all sizes. This typically includes clients who wants to grow their online presence with AI powered web solutions and automated workflows.",
   },
 ];
 
