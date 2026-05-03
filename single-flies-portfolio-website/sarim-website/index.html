@@ -134,10 +134,12 @@
                     <img
                       src="images/Final-profilePicture-22.png"
                       alt="Sarim Awan"
+                      loading="lazy"
+                      decoding="async"
                       onerror="
                         this.style.display = 'none';
                         this.parentNode.innerHTML =
-                          '<div style=\'width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-family:'DM Sans',sans-serif;font-size:60px;font-weight:800;color:rgba(0,212,255,0.3);\'>ZJ</div>';
+                          '<div style=\'width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:60px;font-weight:800;color:rgba(0,212,255,0.3)\'>SA</div>';
                       "
                     />
                   </div>
@@ -159,15 +161,15 @@
                   <div class="float-icon icon-bl">
                     <img
                       src="images/icons/wordpress.png"
-                      alt="Drupal"
-                      onerror="this.parentNode.textContent = 'Dr'"
+                      alt="WordPress"
+                      onerror="this.parentNode.textContent = 'WP'"
                     />
                   </div>
                   <div class="float-icon icon-br">
                     <img
                       src="images/icons/next.png"
-                      alt="WP"
-                      onerror="this.parentNode.textContent = 'WP'"
+                      alt="Next.js"
+                      onerror="this.parentNode.textContent = 'Nx'"
                       style="filter: invert(1)"
                     />
                   </div>
@@ -184,17 +186,17 @@
               <p class="about-description">
                 I'm a Full-Stack Web Developer from Pakistan with
                 <strong>2+ years</strong> of hands-on experience building
-                scalable, modern web applications and websites from the ground
-                up. Skilled in both frontend and backend development. I use
+                scalable, modern web applications from the ground up. Skilled in
+                both frontend and backend development. I use
                 <span>React, Next.js, Tailwind CSS</span> on the front-end, and
-                <span>Node.js, Express, MongoDB, PostgreSQL </span>on the
+                <span>Node.js, Express, MongoDB, PostgreSQL</span> on the
                 backend. <br /><br />
                 I also build custom WordPress sites with tailored themes,
-                Elementor customizations, and WooCommerce setups for clients who
-                need a reliable CMS-based solution. Passionate about clean code,
-                pixel-perfect UIs, and delivering fully customized solutions —
-                from design to deployment.
+                Elementor customizations, and WooCommerce setups. Passionate
+                about clean code, pixel-perfect UIs, and delivering fully
+                customized solutions — from design to deployment.
               </p>
+
               <div class="exp-badge">
                 <div class="exp-icon">
                   <svg
@@ -219,14 +221,12 @@
 
               <div class="about-cta">
                 <button class="btn-primary">Download CV</button>
-                <a href="#contact"
-                  ><button class="btn-outline">Let's Connect →</button></a
-                >
+                <!-- ✦ single <a> instead of <a> wrapping <button> -->
+                <a href="#contact" class="btn-outline">Let's Connect →</a>
               </div>
             </div>
           </div>
         </div>
-
         <!-- ══════════════════════════════════════════════
              SKILLS SECTION
         ══════════════════════════════════════════════ -->
