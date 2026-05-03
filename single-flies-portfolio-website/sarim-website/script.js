@@ -1,61 +1,51 @@
-/* ══════════════════════════════════════════════════════════════════════
-   NAVBAR  (from navbar.js)
-══════════════════════════════════════════════════════════════════════ */
+/* ══════════════════════════════════════════════════════════════
+   NAVBAR
+══════════════════════════════════════════════════════════════ */
 
-// Mobile menu toggle
+// CSS handles smooth scroll — no JS needed
+document.documentElement.style.scrollBehavior = "smooth";
+
 const hamburger = document.getElementById("hamburger");
 const mobileMenu = document.getElementById("mobileMenu");
 const navbar = document.getElementById("navbar");
 
+// Toggle mobile menu
 hamburger.addEventListener("click", () => {
   hamburger.classList.toggle("active");
   mobileMenu.classList.toggle("active");
 });
 
-// Close mobile menu when clicking on a nav link
-const mobileLinks = mobileMenu.querySelectorAll("a");
-mobileLinks.forEach((link) => {
-  link.addEventListener("click", () => {
+// Close menu on link click (delegated — one listener instead of many)
+mobileMenu.addEventListener("click", (e) => {
+  if (e.target.tagName === "A") {
     hamburger.classList.remove("active");
     mobileMenu.classList.remove("active");
-  });
-});
-
-// Add scrolled class to navbar on scroll
-let lastScroll = 0;
-window.addEventListener("scroll", () => {
-  const currentScroll = window.pageYOffset;
-
-  if (currentScroll > 50) {
-    navbar.classList.add("scrolled");
-  } else {
-    navbar.classList.remove("scrolled");
   }
-
-  lastScroll = currentScroll;
 });
 
-// Close mobile menu when clicking outside
+// Close menu on outside click
 document.addEventListener("click", (e) => {
-  if (!hamburger.contains(e.target) && !mobileMenu.contains(e.target)) {
+  if (!navbar.contains(e.target)) {
     hamburger.classList.remove("active");
     mobileMenu.classList.remove("active");
   }
 });
 
-// Smooth scroll for anchor links
-document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-  anchor.addEventListener("click", function (e) {
-    e.preventDefault();
-    const target = document.querySelector(this.getAttribute("href"));
-    if (target) {
-      target.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
+// Throttled scroll — runs at most once per animation frame
+let ticking = false;
+window.addEventListener(
+  "scroll",
+  () => {
+    if (!ticking) {
+      requestAnimationFrame(() => {
+        navbar.classList.toggle("scrolled", scrollY > 50);
+        ticking = false;
       });
+      ticking = true;
     }
-  });
-});
+  },
+  { passive: true },
+); // passive: true tells browser no preventDefault, allows scroll optimization
 
 /* ══════════════════════════════════════════════════════════════════════
    HERO SECTION  (from heroSection.js)
