@@ -3,23 +3,19 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="shortcut icon" href="./images/E6E8EB.png" type="image/x-icon" />
+    <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon" />
     <title>Sarim Awan - Developer</title>
 
+    <!-- All styles consolidated into style.css -->
     <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="Navbar.css" />
-    <link rel="stylesheet" href="hero-fixed-v2.css" />
-    <link rel="stylesheet" href="page-reveal.css" />
-    <link rel="stylesheet" href="about-claude/about4.css" />
-    <link rel="stylesheet" href="skills-section/skills.css" />
-    <link rel="stylesheet" href="FAQ/faq.css" />
-    <link rel="stylesheet" href="Contact-section/contact.css" />
-    <link rel="stylesheet" href="footer/footer.css" />
 
+    <!-- EmailJS CDN -->
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
   </head>
   <body>
-    <!-- Navigation Bar -->
+    <!-- ══════════════════════════════════════════════
+         NAVIGATION BAR
+    ══════════════════════════════════════════════ -->
     <nav class="navbar" id="navbar">
       <div class="nav-container">
         <!-- Logo -->
@@ -27,9 +23,9 @@
 
         <!-- Desktop Navigation Links -->
         <ul class="nav-links">
-          <li><a href="#home">Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#skills">Skills</a></li>
+          <li><a href="#heroContainer">Home</a></li>
+          <li><a href="#AboutSection">About</a></li>
+          <li><a href="#skillsSection">Skills</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
 
@@ -44,16 +40,18 @@
       <!-- Mobile Menu -->
       <div class="mobile-menu" id="mobileMenu">
         <ul>
-          <li><a href="#home">Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#skills">Skills</a></li>
+          <li><a href="#heroContainer">Home</a></li>
+          <li><a href="#AboutSection">About</a></li>
+          <li><a href="#skillsSection">Skills</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
       </div>
     </nav>
 
-    <!-- HERO SECTION -->
-    <div class="hero-container">
+    <!-- ══════════════════════════════════════════════
+         HERO SECTION
+    ══════════════════════════════════════════════ -->
+    <div class="hero-container" id="heroContainer">
       <!-- Background Effects -->
       <div class="background-gradient"></div>
       <div class="grain-overlay"></div>
@@ -88,15 +86,12 @@
           businesses strengthen their online presence and automate their
           workflows. I specialize in MERN stack, Next.js, WordPress development,
           and AI integration and automation to help you grow and scale.
-
-          <!-- I build modern, responsive websites and web applications using the
-          latest technologies. Specializing in MERN stack, Next.js, and
-          WordPress development to bring your ideas to life. -->
         </p>
         <div class="hero-buttons">
-          <!-- <a href="#projects" class="btn btn-primary">View My Work ↓</a> -->
-          <a href="#contact" class="btn btn-primary">Get In Touch &#8595;</a>
-          <a href="#contact" class="btn btn-secondary">
+          <a href="#contact" class="btn btn-primary get-in-touch"
+            >Get In Touch &#8595;</a
+          >
+          <a href="" class="btn btn-secondary">
             <svg
               width="28"
               height="28"
@@ -116,10 +111,17 @@
           </a>
         </div>
       </div>
+
+      <!-- ══════════════════════════════════════════════
+           PAGE CONTENT (revealed after loading)
+      ══════════════════════════════════════════════ -->
       <div class="page-content">
-        <div class="about-root">
+        <!-- ══════════════════════════════════════════════
+             ABOUT SECTION
+        ══════════════════════════════════════════════ -->
+        <div class="about-root" id="AboutSection">
           <div class="about-container">
-            <!-- LEFT -->
+            <!-- LEFT: Image -->
             <div class="about-image-side">
               <div style="position: relative; display: inline-block">
                 <div class="watermark">SARIMDEV</div>
@@ -135,7 +137,7 @@
                       onerror="
                         this.style.display = 'none';
                         this.parentNode.innerHTML =
-                          '<div style=\'width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-family:Syne,sans-serif;font-size:60px;font-weight:800;color:rgba(0,212,255,0.3);\'>ZJ</div>';
+                          '<div style=\'width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-family:'DM Sans',sans-serif;font-size:60px;font-weight:800;color:rgba(0,212,255,0.3);\'>ZJ</div>';
                       "
                     />
                   </div>
@@ -173,19 +175,25 @@
               </div>
             </div>
 
-            <!-- RIGHT -->
+            <!-- RIGHT: Text -->
             <div class="about-text-side">
               <div class="section-label">— About Me</div>
               <h2 class="about-heading">
                 Hi, I'm<br /><span>Sarim Awan</span>
               </h2>
               <p class="about-description">
-                I'm a passionate Full-Stack Drupal Developer with
-                <strong>3+ years</strong> of hands-on experience building
-                scalable, secure, and high-performance web solutions. Proficient
-                in both frontend and backend — from custom Drupal modules and
-                EDC architectures to React-powered UIs and WordPress
-                customization.
+                I'm a Full-Stack Web Developer from Pakistan with
+                <strong>2+ years</strong> of hands-on experience building
+                scalable, modern web applications and websites from the ground
+                up. Skilled in both frontend and backend development. I use
+                <span>React, Next.js, Tailwind CSS</span> on the front-end, and
+                <span>Node.js, Express, MongoDB, PostgreSQL </span>on the
+                backend. <br /><br />
+                I also build custom WordPress sites with tailored themes,
+                Elementor customizations, and WooCommerce setups for clients who
+                need a reliable CMS-based solution. Passionate about clean code,
+                pixel-perfect UIs, and delivering fully customized solutions —
+                from design to deployment.
               </p>
               <div class="exp-badge">
                 <div class="exp-icon">
@@ -204,20 +212,25 @@
                   </svg>
                 </div>
                 <div class="exp-text">
-                  <strong>3+ Years Development Experience</strong>
+                  <strong>2+ Years Development Experience</strong>
                   <span>In Modern Web Technologies</span>
                 </div>
               </div>
 
               <div class="about-cta">
                 <button class="btn-primary">Download CV</button>
-                <button class="btn-outline">Let's Connect →</button>
+                <a href="#contact"
+                  ><button class="btn-outline">Let's Connect →</button></a
+                >
               </div>
             </div>
           </div>
         </div>
 
-        <section class="skills-section">
+        <!-- ══════════════════════════════════════════════
+             SKILLS SECTION
+        ══════════════════════════════════════════════ -->
+        <section class="skills-section" id="skillsSection">
           <div class="section-header">
             <h2>Technical Expertise</h2>
             <p>
@@ -255,7 +268,7 @@
               </div>
             </div>
 
-            <!-- Backend Development - 1 column -->
+            <!-- Backend Development -->
             <div class="skill-card">
               <div class="card-icon">
                 <svg
@@ -369,10 +382,10 @@
               <div class="skill-list">
                 <div class="skill-item">Docker</div>
                 <div class="skill-item">Git</div>
-                <div class="skill-item">Composer</div>
-                <div class="skill-item">Drush</div>
-                <div class="skill-item">GDEV</div>
-                <div class="skill-item">CI/CD</div>
+                <div class="skill-item">VS Code / Cursor</div>
+                <div class="skill-item">Vercel</div>
+                <div class="skill-item">Claude code / AI Tools</div>
+                <div class="skill-item">n8n / Zapier</div>
               </div>
             </div>
 
@@ -432,6 +445,9 @@
           </div>
         </section>
 
+        <!-- ══════════════════════════════════════════════
+             FAQ SECTION
+        ══════════════════════════════════════════════ -->
         <div class="faq-wrapper">
           <div class="faq-header">
             <div class="faq-badge">
@@ -447,13 +463,14 @@
           <div class="faq-list" id="faqList"></div>
         </div>
 
+        <!-- ══════════════════════════════════════════════
+             CONTACT SECTION
+        ══════════════════════════════════════════════ -->
         <section id="contact">
           <div class="contact-inner">
             <!-- Header -->
             <div class="contact-header">
-              <!-- <span class="eyebrow">Contact</span> -->
               <h2>Let's Work Together</h2>
-
               <p>
                 Ready to bring your next project to life? Let's discuss your
                 vision and build something great.
@@ -616,7 +633,13 @@
           </div>
         </section>
       </div>
+      <!-- end .page-content -->
     </div>
+    <!-- end .hero-container -->
+
+    <!-- ══════════════════════════════════════════════
+         FOOTER
+    ══════════════════════════════════════════════ -->
     <footer class="website-footer">
       <div class="footer-line">
         &copy;2026 Muhammad Sarim Awan. All rights reserved
@@ -625,37 +648,34 @@
         <a href="https://www.linkedin.com/in/sarim-awan/">
           <img
             src="https://pngimg.com/uploads/linkedIn/linkedIn_PNG27.png"
-            alt=""
+            alt="LinkedIn"
           />
         </a>
         <a href="https://x.com/MSarimAwan">
           <img
             src="https://static.vecteezy.com/system/resources/previews/027/395/710/original/twitter-brand-new-logo-3-d-with-new-x-shaped-graphic-of-the-world-s-most-popular-social-media-free-png.png"
-            alt=""
+            alt="Twitter/X"
           />
         </a>
-        <a href=" https://www.facebook.com/profile.php?id=61589045668943">
-          <img src="images/icons/facebook-logo.png" alt="" />
+        <a href="https://www.facebook.com/profile.php?id=61589045668943">
+          <img src="images/icons/facebook-logo.png" alt="Facebook" />
         </a>
-        <a href=" https://www.instagram.com/itssarim.awan/">
+        <a href="https://www.instagram.com/itssarim.awan/">
           <img
             src="https://freelogopng.com/images/all_img/1658588965instagram-logo-png-transparent-background.png"
-            alt=""
+            alt="Instagram"
           />
         </a>
         <a href="https://github.com/iam-sarim">
           <img
             src="https://pngimg.com/uploads/github/github_PNG40.png"
-            alt=""
+            alt="GitHub"
           />
         </a>
       </div>
     </footer>
 
-    <script src="navbar.js"></script>
-    <script src="heroSection.js"></script>
-    <script src="page-reveal-instructions.js"></script>
-    <script src="FAQ/faq.js"></script>
-    <script src="./Contact-section/contact.js"></script>
+    <!-- All scripts consolidated into script.js -->
+    <script src="script.js"></script>
   </body>
 </html>

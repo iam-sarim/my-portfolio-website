@@ -254,8 +254,8 @@
   background-clip: text;
 }
 .about-description {
-  font-size: 14.5px;
-  color: rgba(180, 210, 235, 0.72);
+  font-size: 18px;
+  color: rgb(255, 255, 255);
   line-height: 1.82;
 }
 .about-description strong {
@@ -271,7 +271,7 @@
   border: 1px solid rgba(0, 212, 255, 0.22);
   border-radius: 12px;
   padding: 12px 18px;
-  width: fit-content;
+  width: 100%;
 }
 .exp-icon {
   width: 38px;
