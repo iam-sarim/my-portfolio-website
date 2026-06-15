@@ -3,681 +3,1143 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sarim Awan — Full Stack Engineer</title>
+
+    <!-- Fonts: Unbounded 700 (display) + Manrope (body) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon" />
-    <title>Sarim Awan - Developer</title>
-
-    <!-- All styles consolidated into style.css -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Unbounded:wght@700&family=Manrope:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="style.css" />
-
-    <!-- EmailJS CDN -->
-    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
   </head>
   <body>
-    <!-- ══════════════════════════════════════════════
-         NAVIGATION BAR
-    ══════════════════════════════════════════════ -->
-    <nav class="navbar" id="navbar">
-      <div class="nav-container">
-        <!-- Logo -->
-        <a href="#" class="logo">Sarim Awan</a>
-
-        <!-- Desktop Navigation Links -->
-        <ul class="nav-links">
-          <li><a href="#heroContainer">Home</a></li>
-          <li><a href="#AboutSection">About</a></li>
-          <li><a href="#skillsSection">Skills</a></li>
-          <li><a href="#projectsSection">Projects</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-
-        <!-- Hamburger Menu Button -->
-        <button class="hamburger" id="hamburger" aria-label="Toggle menu">
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
-      </div>
-
-      <!-- Mobile Menu -->
-      <div class="mobile-menu" id="mobileMenu">
-        <ul>
-          <li><a href="#heroContainer">Home</a></li>
-          <li><a href="#AboutSection">About</a></li>
-          <li><a href="#skillsSection">Skills</a></li>
-          <li><a href="#projectsSection">Projects</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </div>
-    </nav>
-
-    <!-- ══════════════════════════════════════════════
-         HERO SECTION
-    ══════════════════════════════════════════════ -->
-    <div class="hero-container" id="heroContainer">
-      <!-- Background Effects -->
-      <div class="background-gradient"></div>
-      <div class="grain-overlay"></div>
-
-      <!-- Loading Screen -->
-      <div class="loading-screen" id="loadingScreen">
-        <div class="letter-box">
-          <div class="letter">S</div>
-        </div>
-
-        <div class="code-box" id="codeBox"></div>
-
-        <div class="loading-container">
-          <div class="loading-text" id="loadingText">
-            Initializing Portfolio... 0%
-          </div>
-          <div class="loading-bar-bg">
-            <div class="loading-bar-fill" id="loadingBarFill"></div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Main Hero Content -->
-      <div class="hero-content" id="heroContent">
-        <h1 class="hero-title">Muhammad Sarim</h1>
-        <h2 class="hero-subtitle">
-          AI Powered Full-Stack Web Deve<span id="typed-suffix"></span
-          ><span class="type-cursor" id="typeCursor"></span>
-        </h2>
-        <p class="hero-description">
-          I build modern, responsive websites and web applications that help
-          businesses strengthen their online presence and automate their
-          workflows. I specialize in MERN stack, Next.js, WordPress development,
-          and AI integration and automation to help you grow and scale.
-        </p>
-        <div class="hero-buttons">
-          <a href="#contact" class="btn btn-primary get-in-touch"
-            >Get In Touch &#8595;</a
-          >
-          <a href="SarimResume.pdf" class="btn btn-secondary" download>
-            <svg
-              width="28"
-              height="28"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="#ffffff"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <path
-                d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"
-              />
-              <path d="M14 2v6h6" />
-            </svg>
-            Download Resume
+    <!-- ═══════════════════════════════════
+     HERO SECTION
+═══════════════════════════════════ -->
+    <section class="hero" id="home">
+      <!-- Navbar -->
+      <nav class="hero-nav">
+        <div class="nav-pill">
+          <a href="#home" class="nav-link active">
+            <span class="nav-home-icon">
+              <svg
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                aria-hidden="true"
+              >
+                <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
+              </svg>
+            </span>
+            Home
           </a>
+          <a href="#about" class="nav-link">About</a>
+          <a href="#skills" class="nav-link">Skills</a>
+          <a href="#services" class="nav-link">Services</a>
+          <a href="#projects" class="nav-link">Projects</a>
+          <a href="#contact" class="nav-link">Contact</a>
         </div>
+      </nav>
+
+      <!-- Hero body -->
+      <div class="hero-body">
+        <!-- Giant title — font-size set by FitText JS -->
+        <h1 class="hero-title" id="heroTitle">SARIM©</h1>
+
+        <!--
+      Profile image — PNG with transparent background recommended
+      so the title text shows behind the person.
+    -->
+        <div class="profile-wrap">
+          <img
+            src="images/profile-picuture2.png"
+            alt="Portrait"
+            draggable="false"
+          />
+        </div>
+
+        <!-- Left description -->
+        <p class="side-text side-text--left" id="sideLeft">
+          Full-Stack Engineer & AI Specialist. I build web apps, SaaS platforms,
+          and intelligent AI systems from the ground up.
+        </p>
+
+        <!-- Right description -->
+        <p class="side-text side-text--right" id="sideRight">
+          Helping founders turn ideas into scalable software solutions and AI
+          systems through engineering and collaboration — built on strong
+          architecture and long-term thinking.
+        </p>
       </div>
 
-      <!-- ══════════════════════════════════════════════
-           PAGE CONTENT (revealed after loading)
-      ══════════════════════════════════════════════ -->
-      <div class="page-content">
-        <!-- ══════════════════════════════════════════════
-             ABOUT SECTION
-        ══════════════════════════════════════════════ -->
-        <div class="about-root" id="AboutSection">
-          <div class="about-container">
-            <!-- LEFT: Image -->
-            <div class="about-image-side">
-              <div style="position: relative; display: inline-block">
-                <div class="watermark">SARIMDEV</div>
-                <div class="image-wrapper">
-                  <div class="glow-layer glow-layer-1"></div>
-                  <div class="glow-layer glow-layer-2"></div>
-                  <div class="glow-layer glow-layer-3"></div>
+      <!-- Bottom bar -->
+      <div class="hero-bar">
+        <span>© SarimAwan 2026</span>
+        <span class="scroll-cta" id="scrollCta">(Scroll down)</span>
+      </div>
+    </section>
 
-                  <div class="image-circle">
-                    <img
-                      src="images/Final-profilePicture-22.png"
-                      alt="Sarim Awan"
-                      loading="lazy"
-                      decoding="async"
-                      onerror="
-                        this.style.display = 'none';
-                        this.parentNode.innerHTML =
-                          '<div style=\'width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:60px;font-weight:800;color:rgba(0,212,255,0.3)\'>SA</div>';
-                      "
-                    />
-                  </div>
+    <!-- (More sections go here) -->
 
-                  <div class="float-icon icon-tl">
-                    <img
-                      src="images/icons/javascript-icon.webp"
-                      alt="JS"
-                      onerror="this.parentNode.textContent = 'JS'"
-                    />
-                  </div>
-                  <div class="float-icon icon-tr">
-                    <img
-                      src="images/icons/react-icon.png"
-                      alt="React"
-                      onerror="this.parentNode.textContent = 'Re'"
-                    />
-                  </div>
-                  <div class="float-icon icon-bl">
-                    <img
-                      src="images/icons/wordpress.png"
-                      alt="WordPress"
-                      onerror="this.parentNode.textContent = 'WP'"
-                    />
-                  </div>
-                  <div class="float-icon icon-br">
-                    <img
-                      src="images/icons/next.png"
-                      alt="Next.js"
-                      onerror="this.parentNode.textContent = 'Nx'"
-                      style="filter: invert(1)"
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
+    <!-- ABOUT SECTION -->
+    <section class="about" id="about">
+      <div class="about-inner">
+        <div class="about-label">
+          <span>About</span>
+        </div>
 
-            <!-- RIGHT: Text -->
-            <div class="about-text-side">
-              <div class="section-label">— About Me</div>
-              <h2 class="about-heading">
-                Hi, I'm<br /><span>Sarim Awan</span>
-              </h2>
-              <p class="about-description">
-                I'm a Full-Stack Web Developer from Pakistan with
-                <strong>2+ years</strong> of hands-on experience building
-                scalable, modern web applications from the ground up. Skilled in
-                both frontend and backend development. I use
-                <span>React, Next.js, Tailwind CSS</span> on the front-end, and
-                <span>Node.js, Express, MongoDB, PostgreSQL</span> on the
-                backend. <br /><br />
-                I also build custom WordPress sites with tailored themes,
-                Elementor customizations, and WooCommerce setups. Passionate
-                about clean code, pixel-perfect UIs, and delivering fully
-                customized solutions — from design to deployment.
-              </p>
-
-              <div class="exp-badge">
-                <div class="exp-icon">
-                  <svg
-                    width="28"
-                    height="28"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="#ffffff"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  >
-                    <path d="M16 18l6-6-6-6" />
-                    <path d="M8 6l-6 6 6 6" />
-                  </svg>
-                </div>
-                <div class="exp-text">
-                  <strong>2+ Years Development Experience</strong>
-                  <span>In Modern Web Technologies</span>
-                </div>
-              </div>
-
-              <div class="about-cta">
-                <a href="SarimResume.pdf" download>
-                  <button class="btn-primary">Download CV</button></a
-                >
-
-                <!-- ✦ single <a> instead of <a> wrapping <button> -->
-                <a href="#contact" class="btn-outline">Let's Connect →</a>
-              </div>
-            </div>
+        <div class="about-content">
+          <h2 class="about-heading">Hi, I'm Sarim Awan</h2>
+          <p class="about-text">
+            I'm a
+            <strong>Full-Stack Engineer and AI Automation expert</strong>
+            helping founders turn early ideas into scalable digital products.
+            For over 2 years, I've designed and built full-stack applications,
+            SaaS platforms, and intelligent AI systems engineered for
+            performance and long-term growth. My work spans
+            <strong
+              >modern web app development, AI-powered automation pipelines,
+              LLM-based systems, and cloud infrastructure</strong
+            >
+            — all built on strong architecture and scalable design principles. I
+            approach every project as a long-term system, not just a short-term
+            build — helping startups and growing teams get the technical
+            foundation right before scaling. Great products aren't built by
+            accident. They come from clear thinking, strong architecture, and
+            thoughtful execution.
+          </p>
+          <div class="about-buttons">
+            <a href="#projects" class="btn btn--dark">See My Work</a>
+            <a href="SarimResume.pdf" class="btn btn--outline" download
+              >Download Resume</a
+            >
           </div>
         </div>
-        <!-- ══════════════════════════════════════════════
-             SKILLS SECTION
-        ══════════════════════════════════════════════ -->
-        <section class="skills-section" id="skillsSection">
-          <div class="section-header">
-            <h2>Technical Expertise</h2>
-            <p>
-              Mastering the art of web development with cutting-edge
-              technologies
-            </p>
-          </div>
+      </div>
+    </section>
+
+    <!-- SKILLS SECTION -->
+
+    <section class="skills" id="skills">
+      <div class="skills-inner">
+        <div class="skills-label">
+          <span>Skills</span>
+        </div>
+
+        <div class="skills-right">
+          <h2 class="skills-heading">What I Build With</h2>
 
           <div class="skills-grid">
-            <div class="skill-card">
-              <div class="card-icon">
-                <svg
-                  width="26"
-                  height="26"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2.5"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <polyline points="16 18 22 12 16 6" />
-                  <polyline points="8 6 2 12 8 18" />
-                </svg>
-              </div>
-              <h3 class="card-title">Frontend Development</h3>
-              <div class="skill-list">
-                <div class="skill-item">React JS</div>
-                <div class="skill-item">Next JS</div>
-                <div class="skill-item">TypeScript</div>
-                <div class="skill-item">Tailwind CSS</div>
-                <div class="skill-item">Bootstrap</div>
+            <div class="skill-category">
+              <p class="skill-cat-name">Front-end</p>
+              <div class="skill-tags">
+                <span class="skill-tag">React JS</span>
+                <span class="skill-tag">Next JS</span>
+                <span class="skill-tag">TypeScript</span>
+                <span class="skill-tag">Redux</span>
+                <span class="skill-tag">Tailwind CSS</span>
+                <span class="skill-tag">Bootstrap</span>
+                <span class="skill-tag">Material UI</span>
+                <span class="skill-tag">Axios</span>
               </div>
             </div>
 
-            <div class="skill-card">
-              <div class="card-icon">
-                <svg
-                  width="26"
-                  height="26"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2.5"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <rect x="2" y="2" width="20" height="8" rx="2" ry="2" />
-                  <rect x="2" y="14" width="20" height="8" rx="2" ry="2" />
-                  <line x1="6" y1="6" x2="6.01" y2="6" />
-                  <line x1="6" y1="18" x2="6.01" y2="18" />
-                </svg>
-              </div>
-              <h3 class="card-title">Backend Development</h3>
-              <div class="skill-list">
-                <div class="skill-item">Node JS with Express</div>
-                <div class="skill-item">PostgreSQL</div>
-                <div class="skill-item">MySQL</div>
-                <div class="skill-item">MongoDB</div>
-                <div class="skill-item">REST APIs</div>
-                <div class="skill-item">GraphQL</div>
-                <div class="skill-item">Firebase</div>
+            <div class="skill-category">
+              <p class="skill-cat-name">Backend</p>
+              <div class="skill-tags">
+                <span class="skill-tag">Node JS</span>
+                <span class="skill-tag">Express</span>
+                <span class="skill-tag">PostgreSQL</span>
+                <span class="skill-tag">MongoDB</span>
+                <span class="skill-tag">REST APIs</span>
+                <span class="skill-tag">GraphQL</span>
+                <span class="skill-tag">Supabase</span>
+                <span class="skill-tag">Redis</span>
+                <span class="skill-tag">JWT Authentication</span>
+                <span class="skill-tag">OAuth</span>
               </div>
             </div>
 
-            <div class="skill-card">
-              <div class="card-icon">
+            <div class="skill-category">
+              <p class="skill-cat-name">DevOps & Tools</p>
+              <div class="skill-tags">
+                <span class="skill-tag">Docker</span>
+                <span class="skill-tag">Git</span>
+                <span class="skill-tag">Github</span>
+                <span class="skill-tag">AWS</span>
+                <span class="skill-tag">Vercel</span>
+                <span class="skill-tag">CI/CD</span>
+                <span class="skill-tag">VS Code/Cursor</span>
+                <span class="skill-tag">Postman</span>
+                <span class="skill-tag">npm</span>
+              </div>
+            </div>
+
+            <div class="skill-category">
+              <p class="skill-cat-name">UI/UX Design</p>
+              <div class="skill-tags">
+                <span class="skill-tag">Figma</span>
+                <span class="skill-tag">Prototyping</span>
+                <span class="skill-tag">Responsive Design</span>
+                <span class="skill-tag">User Experience</span>
+                <span class="skill-tag">Call to Actions</span>
+              </div>
+            </div>
+
+            <div class="skill-category">
+              <p class="skill-cat-name">CMS Expertise</p>
+              <div class="skill-tags">
+                <span class="skill-tag">WordPress</span>
+                <span class="skill-tag">WooCommerce</span>
+                <span class="skill-tag">Custom Modules</span>
+                <span class="skill-tag">Views & Panels</span>
+                <span class="skill-tag">Performance Opt.</span>
+              </div>
+            </div>
+
+            <div class="skill-category">
+              <p class="skill-cat-name">AI & Automation</p>
+              <div class="skill-tags">
+                <span class="skill-tag">n8n/zapier workflows</span>
+                <span class="skill-tag">AI Model Integration (LLM APIs)</span>
+                <span class="skill-tag">Claude Code</span>
+                <span class="skill-tag">Langchain</span>
+                <span class="skill-tag">RAG Pipelines</span>
+                <span class="skill-tag">AI Agents</span>
+                <span class="skill-tag">Vector DB's</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════
+     SERVICES SECTION
+═══════════════════════════════════ -->
+    <section class="services" id="services">
+      <div class="services-inner">
+        <div class="services-label">
+          <span>Services</span>
+        </div>
+
+        <div class="services-right">
+          <h2 class="services-heading">What I Can Build For You</h2>
+          <p class="services-subtext">
+            From early-stage product ideas to production-grade systems — clear
+            scope, strong architecture, and long-term thinking on every
+            engagement.
+          </p>
+
+          <div class="services-grid">
+            <div class="service-card">
+              <div class="service-icon-wrap">
                 <svg
-                  width="26"
-                  height="26"
                   viewBox="0 0 24 24"
                   fill="none"
-                  stroke="currentColor"
-                  stroke-width="2.5"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <rect x="2" y="3" width="20" height="14" rx="2" />
+                  <path d="M8 21h8M12 17v4" />
+                </svg>
+              </div>
+              <h3 class="service-title">SaaS &amp; Web App Development</h3>
+              <p class="service-desc">
+                Design and development of scalable SaaS platforms and modern web
+                applications using robust architecture, high-performance
+                frameworks, and long-term scalability principles.
+              </p>
+            </div>
+
+            <div class="service-card">
+              <div class="service-icon-wrap">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M12 2a4 4 0 014 4v1h1a3 3 0 010 6h-1v1a4 4 0 01-8 0v-1H7a3 3 0 010-6h1V6a4 4 0 014-4z"
+                  />
+                  <path d="M9.5 12.5l1.5 1.5 3-3" />
+                </svg>
+              </div>
+              <h3 class="service-title">
+                AI Systems &amp; Intelligent Automation
+              </h3>
+              <p class="service-desc">
+                Design and integration of AI-powered systems including
+                intelligent workflows, automation pipelines, and LLM-based
+                applications that streamline operations and unlock new
+                capabilities.
+              </p>
+            </div>
+
+            <div class="service-card">
+              <div class="service-icon-wrap">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M18 10h-1.26A8 8 0 109 20h9a5 5 0 000-10z" />
+                </svg>
+              </div>
+              <h3 class="service-title">Cloud Architecture &amp; DevOps</h3>
+              <p class="service-desc">
+                Scalable infrastructure and deployment pipelines that ensure
+                performance, reliability, and smooth scaling as your product
+                grows.
+              </p>
+            </div>
+
+            <div class="service-card">
+              <div class="service-icon-wrap">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke-width="1.8"
                   stroke-linecap="round"
                   stroke-linejoin="round"
                 >
                   <circle cx="12" cy="12" r="10" />
-                  <circle cx="12" cy="12" r="6" />
-                  <circle cx="12" cy="12" r="2" />
-                </svg>
-              </div>
-              <h3 class="card-title">WordPress</h3>
-              <div class="skill-list">
-                <div class="skill-item">Elementor</div>
-                <div class="skill-item">WooCommerce</div>
-                <div class="skill-item">Divi</div>
-                <div class="skill-item">Speed Optimization</div>
-                <div class="skill-item">SEO</div>
-              </div>
-            </div>
-
-            <div class="skill-card">
-              <div class="card-icon">
-                <svg
-                  width="26"
-                  height="26"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2.5"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <path d="M12 19l7-7 3 3-7 7-3-3z" />
-                  <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z" />
-                  <path d="M2 2l7.586 7.586" />
-                  <circle cx="11" cy="11" r="2" />
-                </svg>
-              </div>
-              <h3 class="card-title">UI/UX Design</h3>
-              <div class="skill-list">
-                <div class="skill-item">Figma (Prototyping)</div>
-                <div class="skill-item">Responsive Design</div>
-                <div class="skill-item">User Experience</div>
-                <div class="skill-item">Call to Actions</div>
-              </div>
-            </div>
-
-            <div class="skill-card">
-              <div class="card-icon">
-                <svg
-                  width="26"
-                  height="26"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2.5"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <circle cx="12" cy="12" r="3" />
-                  <path
-                    d="M12 1v6m0 6v6m5.2-14.2l-4.2 4.2m0 6l4.2 4.2M23 12h-6m-6 0H1m14.2 5.2l-4.2-4.2m0-6l-4.2-4.2"
+                  <polygon
+                    points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"
                   />
                 </svg>
               </div>
-              <h3 class="card-title">DevOps & Tools</h3>
-              <div class="skill-list">
-                <div class="skill-item">Docker</div>
-                <div class="skill-item">Git</div>
-                <div class="skill-item">VS Code / Cursor</div>
-                <div class="skill-item">Vercel</div>
-                <div class="skill-item">Claude Code / AI Tools</div>
-                <div class="skill-item">n8n / Zapier</div>
-              </div>
-            </div>
-
-            <div class="skill-card">
-              <div class="card-icon">
-                <svg
-                  width="26"
-                  height="26"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2.5"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" />
-                  <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
-                </svg>
-              </div>
-              <h3 class="card-title">CMS Expertise</h3>
-              <div class="skill-list">
-                <div class="skill-item">Site Building</div>
-                <div class="skill-item">Custom Modules</div>
-                <div class="skill-item">Views & Panels</div>
-                <div class="skill-item">Performance Optimization</div>
-              </div>
-            </div>
-
-            <div class="skill-card">
-              <div class="card-icon">
-                <svg
-                  width="26"
-                  height="26"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2.5"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <rect x="5" y="2" width="14" height="20" rx="2" ry="2" />
-                  <line x1="12" y1="18" x2="12.01" y2="18" />
-                </svg>
-              </div>
-              <h3 class="card-title">Mobile & Modern</h3>
-              <div class="skill-list">
-                <div class="skill-item">Progressive Web Apps</div>
-                <div class="skill-item">API Integration</div>
-                <div class="skill-item">Modern JavaScript</div>
-                <div class="skill-item">Performance</div>
-              </div>
+              <h3 class="service-title">
+                Product Architecture &amp; Technical Consulting
+              </h3>
+              <p class="service-desc">
+                Strategic system design and technical planning for startups and
+                growing teams — ensuring your product is structured correctly
+                before development begins.
+              </p>
             </div>
           </div>
-        </section>
+        </div>
+      </div>
+    </section>
 
-        <!-- ══════════════════════════════════════════════
-             PROJECTS SECTION
-        ══════════════════════════════════════════════ -->
-        <section class="projects-section" id="projectsSection">
-          <div class="section-header">
-            <h2>Featured Projects</h2>
-            <p>Real-world applications built with modern technologies</p>
-          </div>
-          <div class="projects-grid" id="projectsGrid"></div>
-        </section>
+    <section class="process" id="process">
+      <div class="process-glow"></div>
 
-        <!-- ══════════════════════════════════════════════
-             FAQ SECTION
-        ══════════════════════════════════════════════ -->
-        <div class="faq-wrapper">
-          <div class="faq-header">
-            <div class="faq-badge">
-              <div class="faq-badge-dot"></div>
-              <span class="faq-badge-text">Got questions?</span>
+      <!-- SVG is a direct child of section so it can span both rows -->
+      <svg class="process-connector" id="processConnector" aria-hidden="true">
+        <path id="processPath" />
+      </svg>
+
+      <div class="process-header">
+        <span class="process-label">Process</span>
+        <h2 class="process-heading">How I Build Products</h2>
+      </div>
+
+      <div class="process-grid">
+        <div class="process-card" data-phase="1">
+          <span class="process-num">Phase 1</span>
+          <h3 class="process-title">Clarity &amp;<br />Product Thinking</h3>
+          <p class="process-desc">
+            Before writing any code, I focus on understanding the real problem.
+            We define the product vision, key workflows, and technical direction
+            so the foundation is clear before development begins.
+          </p>
+          <ul class="process-bullets">
+            <li>Idea validation and product discovery</li>
+            <li>Defining user flows and core features</li>
+            <li>Technical feasibility and architecture planning</li>
+            <li>MVP scope definition</li>
+          </ul>
+        </div>
+
+        <div class="process-card" data-phase="2">
+          <span class="process-num">Phase 2</span>
+          <h3 class="process-title">System &amp;<br />Architecture Design</h3>
+          <p class="process-desc">
+            Once the product direction is clear, I design a system architecture
+            that supports scalability, performance, and maintainability from day
+            one.
+          </p>
+          <ul class="process-bullets">
+            <li>Backend and database architecture</li>
+            <li>API and service structure</li>
+            <li>Infrastructure and deployment strategy</li>
+            <li>Scalability and performance planning</li>
+          </ul>
+        </div>
+
+        <div class="process-card" data-phase="3">
+          <span class="process-num">Phase 3</span>
+          <h3 class="process-title">Product<br />Development</h3>
+          <p class="process-desc">
+            This is where ideas become real software. I build clean,
+            maintainable systems using modern technologies with a focus on
+            performance and reliability.
+          </p>
+          <ul class="process-bullets">
+            <li>Full-stack development (Next.js, React, Node.js)</li>
+            <li>AI and automation integrations</li>
+            <li>Clean, scalable code architecture</li>
+          </ul>
+        </div>
+
+        <div class="process-card" data-phase="4">
+          <span class="process-num">Phase 4</span>
+          <h3 class="process-title">Testing &amp;<br />Optimization</h3>
+          <p class="process-desc">
+            Before launch, the product goes through careful testing and
+            refinement to ensure stability, performance, and a smooth user
+            experience.
+          </p>
+          <ul class="process-bullets">
+            <li>Functional and edge-case testing</li>
+            <li>Performance optimization</li>
+            <li>Security and stability checks</li>
+            <li>UI/UX refinements</li>
+          </ul>
+        </div>
+
+        <div class="process-card" data-phase="5">
+          <span class="process-num">Phase 5</span>
+          <h3 class="process-title">Launch &amp;<br />Continuous Growth</h3>
+          <p class="process-desc">
+            After launch, I focus on improving the system based on real user
+            feedback, scaling the infrastructure, and adding meaningful
+            features.
+          </p>
+          <ul class="process-bullets">
+            <li>Production deployment and monitoring</li>
+            <li>Scaling infrastructure and performance</li>
+            <li>Product improvements and iterations</li>
+            <li>Long-term system maintenance</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="projects" id="projects">
+      <div class="projects-inner">
+        <!-- Header -->
+        <h2 class="projects-heading">Featured Projects</h2>
+        <div class="projects-header-sub">
+          <p class="projects-subtitle">
+            <!-- Whether it's building a SaaS product, engineering a full-stack web
+            app, or crafting a custom WordPress store — I focus on shipping
+            clean, production-ready solutions that work. -->
+
+            Whether it's building a full stack app or an AI powered SaaS product
+            — I focus on shipping clean, production-ready solutions that work.
+          </p>
+          <!-- <a
+            href="https://github.com/iam-sarim"
+            target="_blank"
+            class="projects-see-more"
+          >
+            See More Works &rarr;
+          </a> -->
+        </div>
+
+        <!-- Grid — add or remove .project-card blocks freely -->
+        <div class="projects-grid">
+          <div
+            class="project-card"
+            data-title="CodebaseAI"
+            data-desc="An AI-powered GitHub repository analysis platform. Paste any GitHub URL and the AI analyzes the entire codebase — producing an architecture summary, system diagram, and tech stack breakdown. Includes an interactive chatbot you can ask questions like 'How does authentication work?' or 'What does this function do?'. System analyzes codebase using vector embeddings, semantic search, and LLMs to provide accurate, context-aware answers about the code. It maintains chat memory and history, and saves previously analyzed repositories for easy future access."
+            data-tech="Next.js,TypeScript,Supabase,Groq,HuggingFace,Mermaid.js,RAG Pipelines"
+            data-live="https://codebaseai.vercel.app/"
+            data-img="images/projects/codebaseai.png"
+          >
+            <div class="project-img-wrap">
+              <img src="images/projects/codebaseai.png" alt="CodebaseAI" />
+              <div class="project-img-overlay"><span>View Project</span></div>
             </div>
-            <h2 class="faq-title">Frequently Asked Questions</h2>
-            <p class="faq-subtitle">
-              Everything you need to know about working with me
+            <h3 class="project-name">CodebaseAI</h3>
+            <p class="project-cat">
+              Github repository analysis platform &bull; Web Application
             </p>
           </div>
 
-          <div class="faq-list" id="faqList"></div>
+          <div
+            class="project-card"
+            data-title="SnapSend"
+            data-desc="An encrypted full stack file sharing application that allows users to upload, store, and share any type of file through a simple shareable link. Each user gets a private dashboard to securely manage and access their files at any time. The platform also includes password-protected file sharing, direct email delivery of file links, and one-click downloads, making file distribution fast, secure, and convenient."
+            data-tech="Next.js,TypeScript,Supabase,Clerk,Resend,PostgreSQL"
+            data-live="https://snapsends.vercel.app"
+            data-img="images/projects/snapsend.png"
+          >
+            <div class="project-img-wrap">
+              <img src="images/projects/snapsend.png" alt="SnapSend" />
+              <div class="project-img-overlay"><span>View Project</span></div>
+            </div>
+            <h3 class="project-name">SnapSend</h3>
+            <p class="project-cat">
+              Encrypted File Sharing App &bull; SaaS Product
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="faq" id="faq">
+      <div class="faq-inner">
+        <div class="faq-header">
+          <div class="faq-label">
+            <span>FAQ</span>
+          </div>
+          <h2 class="faq-heading">Frequently Asked Questions</h2>
         </div>
 
-        <!-- ══════════════════════════════════════════════
-             CONTACT SECTION
-        ══════════════════════════════════════════════ -->
-        <section id="contact">
-          <div class="contact-inner">
-            <!-- Header -->
-            <div class="contact-header">
-              <h2>Let's Work Together</h2>
-              <p>
-                Ready to bring your next project to life? Let's discuss your
-                vision and build something great.
-              </p>
+        <div class="faq-list">
+          <div class="faq-item">
+            <div class="faq-question" role="button" aria-expanded="false">
+              <span class="faq-q-text"
+                >What technologies do you specialize in, and what services do
+                you offer?</span
+              >
+              <span class="faq-icon">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                  <line
+                    x1="7"
+                    y1="1"
+                    x2="7"
+                    y2="13"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                  />
+                  <line
+                    x1="1"
+                    y1="7"
+                    x2="13"
+                    y2="7"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                  />
+                </svg>
+              </span>
             </div>
-
-            <!-- Grid -->
-            <div class="contact-grid">
-              <!-- Left: Info -->
-              <div class="contact-info">
-                <h3>Get In Touch</h3>
-                <p class="info-sub">
-                  Reach out through any of these channels and I'll get back to
-                  you as soon as possible.
+            <div class="faq-answer-wrap">
+              <div class="faq-answer-inner">
+                <p class="faq-answer">
+                  I work with full JavaScript ecosystem — React, Next.js, and
+                  TypeScript on the frontend, Node.js and Express on the
+                  backend, with PostgreSQL, MongoDB, and Supabase for databases.
+                  AI & LLM integrations (OpenAI, LangChain, RAG systems), and
+                  cloud infrastructure (AWS, Docker, CI/CD). My services
+                  includes building SaaS products, full stack web applications,
+                  business websites and AI Integration and Automation
                 </p>
+              </div>
+            </div>
+          </div>
 
-                <div class="social-links">
-                  <!-- Email -->
-                  <a
-                    href="mailto:msarim.business@gmail.com"
-                    class="social-link"
-                  >
-                    <div class="social-icon">
-                      <svg
-                        viewBox="0 0 24 24"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M20 4H4C2.9 4 2 4.9 2 6v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"
-                        />
-                      </svg>
-                    </div>
-                    <div class="social-text">
-                      <span class="social-label">Email</span>
-                      <span class="social-value"
-                        >msarim.business@gmail.com</span
-                      >
-                    </div>
-                  </a>
+          <div class="faq-item">
+            <div class="faq-question" role="button" aria-expanded="false">
+              <span class="faq-q-text">How do we get started?</span>
+              <span class="faq-icon">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                  <line
+                    x1="7"
+                    y1="1"
+                    x2="7"
+                    y2="13"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                  />
+                  <line
+                    x1="1"
+                    y1="7"
+                    x2="13"
+                    y2="7"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                  />
+                </svg>
+              </span>
+            </div>
+            <div class="faq-answer-wrap">
+              <div class="faq-answer-inner">
+                <p class="faq-answer">
+                  Simple — reach out via the contact form or email below. We'll
+                  have a quick call to align on your project goals, timeline,
+                  and budget. From there I'll put together a clear proposal
+                  covering scope, deliverables, and pricing. Once we're on the
+                  same page, we kick off immediately with no long waiting
+                  periods.
+                </p>
+              </div>
+            </div>
+          </div>
 
-                  <!-- LinkedIn -->
-                  <a
-                    href="https://www.linkedin.com/in/sarim-awan/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="social-link"
-                  >
-                    <div class="social-icon">
-                      <svg
-                        viewBox="0 0 24 24"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
-                        />
-                      </svg>
-                    </div>
-                    <div class="social-text">
-                      <span class="social-label">LinkedIn</span>
-                      <span class="social-value">Sarim Awan</span>
-                    </div>
-                  </a>
+          <div class="faq-item">
+            <div class="faq-question" role="button" aria-expanded="false">
+              <span class="faq-q-text"
+                >How long does a project usually take?</span
+              >
+              <span class="faq-icon">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                  <line
+                    x1="7"
+                    y1="1"
+                    x2="7"
+                    y2="13"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                  />
+                  <line
+                    x1="1"
+                    y1="7"
+                    x2="13"
+                    y2="7"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                  />
+                </svg>
+              </span>
+            </div>
+            <div class="faq-answer-wrap">
+              <div class="faq-answer-inner">
+                <p class="faq-answer">
+                  Timelines depend on scope. A landing page or brochure site
+                  usually takes 1–2 weeks. A full-stack web app or SaaS product
+                  typically takes 4–12 weeks, depending on features and
+                  complexity. I always provide a clear, realistic timeline
+                  upfront before starting and keep you updated throughout the
+                  entire process, so there are no surprises.
+                </p>
+              </div>
+            </div>
+          </div>
 
-                  <!-- GitHub -->
-                  <a
-                    href="https://github.com/iam-sarim"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="social-link"
-                  >
-                    <div class="social-icon">
-                      <svg
-                        viewBox="0 0 24 24"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"
-                        />
-                      </svg>
-                    </div>
-                    <div class="social-text">
-                      <span class="social-label">GitHub</span>
-                      <span class="social-value">Sarim Awan</span>
-                    </div>
-                  </a>
-                </div>
+          <div class="faq-item">
+            <div class="faq-question" role="button" aria-expanded="false">
+              <span class="faq-q-text"
+                >What does your development process look like?</span
+              >
+              <span class="faq-icon">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                  <line
+                    x1="7"
+                    y1="1"
+                    x2="7"
+                    y2="13"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                  />
+                  <line
+                    x1="1"
+                    y1="7"
+                    x2="13"
+                    y2="7"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                  />
+                </svg>
+              </span>
+            </div>
+            <div class="faq-answer-wrap">
+              <div class="faq-answer-inner">
+                <p class="faq-answer">
+                  I follow a structured five-phase approach — starting with
+                  product discovery and architecture design before writing code.
+                  Then full-stack development, followed by testing and
+                  optimization, and finally deployment and continuous iteration.
+                  Each phase has clear deliverables. Regular check-ins and demos
+                  make sure the product evolves in the direction you want.
+                </p>
+              </div>
+            </div>
+          </div>
 
-                <!-- Decorative dot grid -->
-                <div class="dot-grid">
-                  <span></span><span></span><span></span><span></span>
-                  <span></span><span></span><span></span><span></span>
-                  <span></span><span></span><span></span><span></span>
-                  <span></span><span></span><span></span><span></span>
-                </div>
+          <div class="faq-item">
+            <div class="faq-question" role="button" aria-expanded="false">
+              <span class="faq-q-text"
+                >Do you work with teams or just solo projects?</span
+              >
+              <span class="faq-icon">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                  <line
+                    x1="7"
+                    y1="1"
+                    x2="7"
+                    y2="13"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                  />
+                  <line
+                    x1="1"
+                    y1="7"
+                    x2="13"
+                    y2="7"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                  />
+                </svg>
+              </span>
+            </div>
+            <div class="faq-answer-wrap">
+              <div class="faq-answer-inner">
+                <p class="faq-answer">
+                  Both. I'm equally comfortable owning a project end to end as a
+                  solo developer, or plugging into an existing team as a
+                  frontend, backend, or full-stack contributor. I've
+                  collaborated with designers, product managers, and other
+                  engineers — remote async or real-time — and I adapt to
+                  whatever workflow and tools your team already uses.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question" role="button" aria-expanded="false">
+              <span class="faq-q-text"
+                >Can you integrate AI into existing products?</span
+              >
+              <span class="faq-icon">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                  <line
+                    x1="7"
+                    y1="1"
+                    x2="7"
+                    y2="13"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                  />
+                  <line
+                    x1="1"
+                    y1="7"
+                    x2="13"
+                    y2="7"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                  />
+                </svg>
+              </span>
+            </div>
+            <div class="faq-answer-wrap">
+              <div class="faq-answer-inner">
+                <p class="faq-answer">
+                  Yes. I design and implement AI-powered features such as
+                  intelligent automation, AI assistants, document processing,
+                  recommendation systems, and data-driven workflows. The goal is
+                  to use AI where it actually adds value, not just as a trend.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question" role="button" aria-expanded="false">
+              <span class="faq-q-text">Who do you typically work with?</span>
+              <span class="faq-icon">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                  <line
+                    x1="7"
+                    y1="1"
+                    x2="7"
+                    y2="13"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                  />
+                  <line
+                    x1="1"
+                    y1="7"
+                    x2="13"
+                    y2="7"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                  />
+                </svg>
+              </span>
+            </div>
+            <div class="faq-answer-wrap">
+              <div class="faq-answer-inner">
+                <p class="faq-answer">
+                  Mostly early-stage startups building their first product,
+                  entrepreneurs with a SaaS idea ready to be brought to life,
+                  and small businesses that need a professional, high-performing
+                  web presence. I also work with agencies looking for reliable
+                  development support on client projects. If you have a real
+                  problem and want clean, working software — we'll get along
+                  fine.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="contact-inner">
+        <div class="contact-label">
+          <span>Contact</span>
+        </div>
+
+        <div class="contact-content">
+          <h2 class="contact-heading">Let's work together.</h2>
+          <p class="contact-subtext">
+            Have a product to build, a site to launch, or a problem to solve?
+            I'm open to freelance projects, collaborations, and full-time remote
+            opportunities. Reach out — I usually respond within 24 hours.
+          </p>
+
+          <div class="contact-body">
+            <!-- Links -->
+            <div class="contact-links-col">
+              <p class="contact-links-heading">Find me on</p>
+
+              <div class="contact-links">
+                <a href="mailto:msarim.business@gmail.com" class="contact-link">
+                  <span class="contact-link-icon">
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke-width="1.8"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <rect x="2" y="4" width="20" height="16" rx="3" />
+                      <path d="M2 7l10 7 10-7" />
+                    </svg>
+                  </span>
+                  <div class="contact-link-info">
+                    <span class="contact-link-label">Email</span>
+                    <span class="contact-link-value"
+                      >msarim.business@gmail.com</span
+                    >
+                  </div>
+                </a>
+
+                <a
+                  href="https://www.linkedin.com/in/sarimawan/"
+                  target="_blank"
+                  class="contact-link"
+                >
+                  <span class="contact-link-icon">
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke-width="1.8"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <rect x="2" y="2" width="20" height="20" rx="4" />
+                      <path
+                        d="M7 10v7M7 7v.01M12 17v-3.5a2 2 0 014 0V17M12 10v7"
+                      />
+                    </svg>
+                  </span>
+                  <div class="contact-link-info">
+                    <span class="contact-link-label">LinkedIn</span>
+                    <span class="contact-link-value">in/sarimawan</span>
+                  </div>
+                </a>
+
+                <a
+                  href="https://github.com/iam-sarim"
+                  target="_blank"
+                  class="contact-link"
+                >
+                  <span class="contact-link-icon">
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke-width="1.8"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <path
+                        d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"
+                      />
+                    </svg>
+                  </span>
+                  <div class="contact-link-info">
+                    <span class="contact-link-label">GitHub</span>
+                    <span class="contact-link-value">iam-sarim</span>
+                  </div>
+                </a>
+
+                <a
+                  href="https://wa.me/923189457439"
+                  target="_blank"
+                  class="contact-link"
+                >
+                  <span class="contact-link-icon">
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke-width="1.8"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <path
+                        d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"
+                      />
+                    </svg>
+                  </span>
+                  <div class="contact-link-info">
+                    <span class="contact-link-label">WhatsApp</span>
+                    <span class="contact-link-value">+92 318 9457439</span>
+                  </div>
+                </a>
               </div>
 
-              <!-- Right: Form -->
-              <div class="contact-form-card">
+              <p class="contact-availability">Available for new projects</p>
+            </div>
+
+            <!-- Form -->
+            <div class="contact-form-col">
+              <form class="contact-form" id="contactForm" novalidate>
                 <div class="form-row">
-                  <div class="field-group">
-                    <label for="name">Name <span class="req">*</span></label>
+                  <div class="form-group">
+                    <label for="cf-name">Name *</label>
                     <input
                       type="text"
-                      id="name"
+                      id="cf-name"
                       placeholder="Your name"
                       required
                     />
                   </div>
-                  <div class="field-group">
-                    <label for="email">Email <span class="req">*</span></label>
+                  <div class="form-group">
+                    <label for="cf-email">Email *</label>
                     <input
                       type="email"
-                      id="email"
+                      id="cf-email"
                       placeholder="your@email.com"
                       required
                     />
                   </div>
                 </div>
 
-                <div class="field-group">
-                  <label for="subject"
-                    >Subject <span class="req">*</span></label
-                  >
+                <div class="form-group">
+                  <label for="cf-subject">Subject *</label>
                   <input
                     type="text"
-                    id="subject"
-                    placeholder="Project discussion"
+                    id="cf-subject"
+                    placeholder="What's this about?"
                     required
                   />
                 </div>
 
-                <div class="field-group">
-                  <label for="message"
-                    >Message <span class="req">*</span></label
-                  >
+                <div class="form-group">
+                  <label for="cf-message">Message *</label>
                   <textarea
-                    id="message"
-                    placeholder="Tell me about your project..."
+                    id="cf-message"
+                    placeholder="Tell me about your project or idea..."
                     required
                   ></textarea>
                 </div>
 
-                <button class="btn-send" id="sendBtn" onclick="sendEmail()">
-                  <span>
-                    <svg
-                      width="16"
-                      height="16"
-                      viewBox="0 0 24 24"
-                      fill="currentColor"
-                    >
-                      <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z" />
-                    </svg>
-                    Send Message
-                  </span>
+                <button type="submit" class="btn btn--dark">
+                  Send Message &rarr;
                 </button>
+              </form>
 
-                <div class="status-msg" id="statusMsg"></div>
+              <div class="form-success" id="formSuccess">
+                <div class="form-success-mark">✦</div>
+                <p>Message sent. I'll get back to you within 24 hours.</p>
               </div>
             </div>
           </div>
-        </section>
+        </div>
       </div>
-      <!-- end .page-content -->
-    </div>
-    <!-- end .hero-container -->
+    </section>
 
-    <!-- ══════════════════════════════════════════════
-         FOOTER
-    ══════════════════════════════════════════════ -->
-    <footer class="website-footer">
-      <div class="footer-line">
-        &copy;2026 Muhammad Sarim Awan. All rights reserved
-      </div>
-      <div class="footer-social-icons">
-        <a href="https://www.linkedin.com/in/sarim-awan/">
-          <img
-            src="https://pngimg.com/uploads/linkedIn/linkedIn_PNG27.png"
-            alt="LinkedIn"
-          />
-        </a>
-        <a href="https://x.com/MSarimAwan">
-          <img
-            src="https://static.vecteezy.com/system/resources/previews/027/395/710/original/twitter-brand-new-logo-3-d-with-new-x-shaped-graphic-of-the-world-s-most-popular-social-media-free-png.png"
-            alt="Twitter/X"
-          />
-        </a>
-        <a href="https://www.facebook.com/profile.php?id=61589045668943">
-          <img src="images/icons/facebook-logo.png" alt="Facebook" />
-        </a>
-        <a href="https://www.instagram.com/itssarim.awan/">
-          <img
-            src="https://freelogopng.com/images/all_img/1658588965instagram-logo-png-transparent-background.png"
-            alt="Instagram"
-          />
-        </a>
-        <a href="https://github.com/iam-sarim">
-          <img
-            src="https://pngimg.com/uploads/github/github_PNG40.png"
-            alt="GitHub"
-          />
-        </a>
+    <footer class="footer">
+      <div class="footer-inner">
+        <!-- Top row -->
+        <div class="footer-top">
+          <div class="footer-brand">
+            <span class="footer-brand-name">Sarim Awan</span>
+            <span class="footer-brand-role"
+              >Full-Stack Engineer · Pakistan</span
+            >
+            <p class="footer-bio">
+              I build scalable web apps, SaaS products, and custom solutions —
+              clean code, pixel-perfect UIs, from design to deployment.
+            </p>
+          </div>
+
+          <nav class="footer-nav" aria-label="Footer navigation">
+            <span class="footer-nav-label">Navigation</span>
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#services">Services</a>
+            <a href="#projects">Projects</a>
+            <a href="#faq">FAQ</a>
+            <a href="#contact">Contact</a>
+          </nav>
+        </div>
+
+        <div class="footer-divider"></div>
+
+        <!-- Bottom row -->
+        <div class="footer-bottom">
+          <p class="footer-copy">
+            © 2026 Muhammad Sarim Awan. All rights reserved.
+            <span>·</span>
+          </p>
+
+          <div class="footer-socials">
+            <!-- LinkedIn -->
+            <a
+              href="https://www.linkedin.com/in/sarim-awan/"
+              target="_blank"
+              class="footer-social"
+              aria-label="LinkedIn"
+            >
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"
+                />
+                <rect x="2" y="9" width="4" height="12" />
+                <circle cx="4" cy="4" r="2" fill="none" />
+              </svg>
+            </a>
+
+            <!-- GitHub -->
+            <a
+              href="https://github.com/iam-sarim/"
+              target="_blank"
+              class="footer-social"
+              aria-label="GitHub"
+            >
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"
+                />
+              </svg>
+            </a>
+
+            <!-- Facebook -->
+            <a
+              href="https://www.facebook.com/profile.php?id=61589045668943"
+              target="_blank"
+              class="footer-social"
+              aria-label="Facebook"
+            >
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"
+                />
+              </svg>
+            </a>
+
+            <!-- Instagram -->
+            <a
+              href="https://www.instagram.com/itssarim.awan/"
+              target="_blank"
+              class="footer-social"
+              aria-label="Instagram"
+            >
+              <svg viewBox="0 0 24 24">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z" />
+                <line
+                  x1="17.5"
+                  y1="6.5"
+                  x2="17.51"
+                  y2="6.5"
+                  stroke-width="2.5"
+                />
+              </svg>
+            </a>
+
+            <!-- X (Twitter) -->
+            <a
+              href="https://x.com/MSarimAwan"
+              target="_blank"
+              class="footer-social footer-social--x"
+              aria-label="X / Twitter"
+            >
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"
+                />
+              </svg>
+            </a>
+          </div>
+        </div>
       </div>
     </footer>
 
-    <!-- All scripts consolidated into script.js -->
+    <!-- Project Detail Modal -->
+    <div class="modal-backdrop" id="projectModal" aria-hidden="true">
+      <div
+        class="modal-box"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="modalTitle"
+      >
+        <button class="modal-close" id="modalClose" aria-label="Close">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+            <path
+              d="M2 2l10 10M12 2L2 12"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+            />
+          </svg>
+        </button>
+
+        <div class="modal-img-wrap">
+          <img id="modalImg" src="ima" alt="" />
+        </div>
+
+        <div class="modal-body">
+          <h2 class="modal-title" id="modalTitle"></h2>
+          <p class="modal-desc" id="modalDesc"></p>
+
+          <div class="modal-tech-section">
+            <span class="modal-tech-label">Tech Stack</span>
+            <div class="modal-tags" id="modalTags"></div>
+          </div>
+
+          <a
+            href="#"
+            target="_blank"
+            class="btn btn--yellow modal-live-btn"
+            id="modalLive"
+          >
+            Live Demo &rarr;
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Floating Hamburger Nav -->
+    <div class="float-nav" id="floatNav">
+      <button
+        class="float-hamburger"
+        id="floatHamburger"
+        aria-label="Open navigation"
+        aria-expanded="false"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <div class="float-menu" id="floatMenu">
+        <a href="#home" class="float-nav-link">Home</a>
+        <a href="#about" class="float-nav-link">About</a>
+        <a href="#skills" class="float-nav-link">Skills</a>
+        <a href="#services" class="float-nav-link">Services</a>
+        <a href="#projects" class="float-nav-link">Projects</a>
+        <a href="#faq" class="float-nav-link">FAQ</a>
+        <a href="#contact" class="float-nav-link">Contact</a>
+      </div>
+    </div>
     <script src="script.js"></script>
   </body>
 </html>
