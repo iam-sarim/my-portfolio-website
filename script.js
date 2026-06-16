@@ -207,14 +207,15 @@ window.addEventListener("resize", () => {
 (function ContactForm() {
   const form = document.getElementById("contactForm");
   const success = document.getElementById("formSuccess");
+  const submitBtn = form?.querySelector('button[type="submit"]');
   if (!form) return;
 
-  form.addEventListener("submit", function (e) {
+  form.addEventListener("submit", async function (e) {
     e.preventDefault();
 
+    // Validation
     const fields = form.querySelectorAll("[required]");
     let valid = true;
-
     fields.forEach((field) => {
       field.style.borderColor = "";
       if (!field.value.trim()) {
@@ -222,15 +223,36 @@ window.addEventListener("resize", () => {
         valid = false;
       }
     });
-
     if (!valid) return;
 
-    // ── Wire up to Formspree / EmailJS here ──
-    // For now: show success state
-    form.classList.add("hidden");
-    success.classList.add("visible");
+    // Loading state
+    submitBtn.textContent = "Sending...";
+    submitBtn.disabled = true;
+
+    try {
+      const res = await fetch(form.action, {
+        method: "POST",
+        body: new FormData(form),
+        headers: { Accept: "application/json" },
+      });
+
+      if (res.ok) {
+        // Success
+        form.classList.add("hidden");
+        success.classList.add("visible");
+      } else {
+        // Server error
+        submitBtn.textContent = "Failed — try again";
+        submitBtn.disabled = false;
+      }
+    } catch (err) {
+      // Network error
+      submitBtn.textContent = "Failed — try again";
+      submitBtn.disabled = false;
+    }
   });
 })();
+
 
 /* ══════════════════════════════
    Project Modal
