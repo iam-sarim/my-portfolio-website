@@ -2112,11 +2112,20 @@ body.modal-open {
   padding: 10px 18px;
   border-radius: 12px;
   white-space: nowrap;
+
+  /* Stagger state — hidden by default */
+  opacity: 0;
+  transform: translateY(7px);
   transition:
     background 0.18s,
-    color 0.18s;
+    color 0.18s,
+    opacity 0.22s ease,
+    transform 0.22s cubic-bezier(0.22, 1, 0.36, 1);
 }
-
+.float-nav-link.link-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
 .float-nav-link:hover {
   background: rgba(255, 255, 255, 0.09);
   color: #fff;
