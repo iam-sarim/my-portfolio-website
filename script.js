@@ -341,15 +341,36 @@ window.addEventListener("resize", () => {
   const heroNav = document.querySelector(".hero-nav");
   if (!floatNav || !hamburger || !heroNav) return;
 
-  /* Show hamburger the moment the top navbar leaves the viewport */
+  const floatLinks = Array.from(document.querySelectorAll(".float-nav-link"));
+
+  /* Stagger links in — first to last */
+  function staggerIn() {
+    floatLinks.forEach((link, i) => {
+      setTimeout(() => link.classList.add("link-visible"), 50 + i * 38);
+    });
+  }
+
+  /* Stagger links out — last to first, then close the menu */
+  function staggerOut(cb) {
+    [...floatLinks].reverse().forEach((link, i) => {
+      setTimeout(() => link.classList.remove("link-visible"), i * 32);
+    });
+    if (cb) setTimeout(cb, floatLinks.length * 32 + 40);
+  }
+
+  /* Reset all links to hidden without animation */
+  function resetLinks() {
+    floatLinks.forEach((l) => l.classList.remove("link-visible"));
+  }
+
+  /* Show / hide hamburger when hero navbar enters / leaves viewport */
   const navObserver = new IntersectionObserver(
     ([entry]) => {
       if (entry.isIntersecting) {
-        /* Navbar back on screen — hide and close hamburger */
+        resetLinks();
         floatNav.classList.remove("visible", "open");
         hamburger.setAttribute("aria-expanded", "false");
       } else {
-        /* Navbar off screen — reveal hamburger */
         floatNav.classList.add("visible");
       }
     },
@@ -357,33 +378,44 @@ window.addEventListener("resize", () => {
   );
   navObserver.observe(heroNav);
 
-  /* Toggle open / close on button click */
+  /* Toggle open / close */
   hamburger.addEventListener("click", (e) => {
     e.stopPropagation();
-    const isOpen = floatNav.classList.toggle("open");
-    hamburger.setAttribute("aria-expanded", String(isOpen));
+    const willOpen = !floatNav.classList.contains("open");
+
+    if (willOpen) {
+      floatNav.classList.add("open");
+      hamburger.setAttribute("aria-expanded", "true");
+      staggerIn();
+    } else {
+      staggerOut(() => {
+        floatNav.classList.remove("open");
+        hamburger.setAttribute("aria-expanded", "false");
+      });
+    }
   });
 
-  /* Close when a link is clicked */
-  document.querySelectorAll(".float-nav-link").forEach((link) => {
+  /* Close immediately when a nav link is clicked — page will scroll anyway */
+  floatLinks.forEach((link) => {
     link.addEventListener("click", () => {
+      resetLinks();
       floatNav.classList.remove("open");
       hamburger.setAttribute("aria-expanded", "false");
     });
   });
 
-  /* Close when clicking anywhere outside the float nav */
+  /* Close with stagger when clicking outside */
   document.addEventListener("click", (e) => {
-    if (!floatNav.contains(e.target)) {
-      floatNav.classList.remove("open");
-      hamburger.setAttribute("aria-expanded", "false");
+    if (!floatNav.contains(e.target) && floatNav.classList.contains("open")) {
+      staggerOut(() => {
+        floatNav.classList.remove("open");
+        hamburger.setAttribute("aria-expanded", "false");
+      });
     }
   });
 
-  /* Keep active link in sync with scroll position */
-  const floatLinks = document.querySelectorAll(".float-nav-link");
+  /* Active link highlight on scroll */
   const sections = document.querySelectorAll("section[id]");
-
   const sectionObserver = new IntersectionObserver(
     (entries) =>
       entries.forEach((entry) => {
